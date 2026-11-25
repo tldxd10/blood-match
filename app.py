@@ -1,4 +1,3 @@
-import random
 import streamlit as st
 
 blood_types = {
@@ -59,12 +58,6 @@ if st.button("분석하기"):
         st.write("### 부모에게서 나올 수 있는 자식의 유전자형")
         for gene in possible_children:
             st.write(gene, "-", blood_types[gene])
-
-        # 엄마 유전자 1개 + 아빠 유전자 1개를 각각 랜덤 추출
-        random_result = "".join(sorted([random.choice(mom), random.choice(dad)]))
-        st.write(
-            f"무작위 유전자 조합: {random_result} ({blood_types[random_result]})"
-        )
 
         if child in possible_children:
             st.success(
